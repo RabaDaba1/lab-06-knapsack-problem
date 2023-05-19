@@ -2,11 +2,11 @@
 
 The goal of this is lab is to implement various solvers for the knapsack problem.
 One has to: fill missing code in: 
-  * `saport.knapsack.solvers.greedy`
-  * `saport.knapsack.solvers.dynamic`
-  * `saport.knapsack.solvers.bnb_dfs`
+  * [ ] `saport.knapsack.solvers.greedy`
+  * [ ] `saport.knapsack.solvers.dynamic`
+  * [ ] `saport.knapsack.solvers.bnb_dfs`
   
-The `saport.knaspack.solvers.dfs` is already implemented, you may use the `benchmarks.py` 
+The `saport.knaspack.solvers.dfs` is already implemented, you may use the `benchmarks.py` to compare the performance of the implemented solvers. 
 
 ## SAPORT
 
