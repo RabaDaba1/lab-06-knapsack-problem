@@ -83,4 +83,4 @@ class WeightHeuristic(Heuristic):
     """
     def __call__(self, item: Item) -> float:
         # TODO: replace line below with the correct value
-        return item.weight
+        return -item.weight
