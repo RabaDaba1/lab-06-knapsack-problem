@@ -40,7 +40,16 @@ class GreedySolver(Solver):
         #      2) take as many as you can
         #      3) remember to replace the dummy solution below :)
         # tip. don't implement sorting! Just use the "sorted" function
-        return Solution([], 0, 0, False)
+        
+        sorted_items = sorted(self.problem.items, key=heuristic, reverse=True)
+        
+        solution = Solution.empty()
+        
+        for item in sorted_items:
+            if solution.weight + item.weight <= self.problem.capacity:
+                solution = solution.with_added_item(item)
+                
+        return solution
 
 
     def solve(self) -> Solution:
@@ -56,7 +65,7 @@ class DensityHeuristic(Heuristic):
     """
     def __call__(self, item: Item) -> float:
         # TODO: replace line below with the correct value
-        return 0.0
+        return item.value/item.weight
 
 
 class ValueHeuristic(Heuristic):
@@ -65,7 +74,7 @@ class ValueHeuristic(Heuristic):
     """
     def __call__(self, item: Item) -> float:
         # TODO: replace line below with the correct value
-        return 0.0
+        return item.value
 
 
 class WeightHeuristic(Heuristic):
@@ -74,4 +83,4 @@ class WeightHeuristic(Heuristic):
     """
     def __call__(self, item: Item) -> float:
         # TODO: replace line below with the correct value
-        return 0.0
+        return item.weight
