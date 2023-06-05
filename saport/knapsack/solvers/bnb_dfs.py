@@ -35,7 +35,7 @@ class BnbDFSSolver(Solver):
             self.interrupted = True
             return
         
-        if self._upper_bound(left, solution) < self.best_solution.value:
+        if self._upper_bound(left, solution) <= self.best_solution.value:
             return
 
         space_left = self.problem.capacity - solution.weight
