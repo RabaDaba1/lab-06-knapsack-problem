@@ -25,6 +25,28 @@ class BnbDFSSolver(Solver):
         #   tip 2. use the _upper_bound method to calculate the upper bound
         #   tip 3. if the upper bound is lower than the current best solution, just
         #          ignore rest of the branch (a simple "return" is enough)
+        
+        if len(left) == 0:
+            if solution.value > self.best_solution.value:
+                self.best_solution = solution
+            return
+
+        if self.timeout():
+            self.interrupted = True
+            return
+        
+        if self._upper_bound(left, solution) < self.best_solution.value:
+            return
+
+        space_left = self.problem.capacity - solution.weight
+        item = left[0]
+        new_left = left[1:]
+        
+        if item.weight <= space_left:
+            self._dfs_bnb(new_left, solution.with_added_item(item))
+        self._dfs_bnb(new_left, solution)
+        
+        
         return
 
     def _upper_bound(self, left: List[Item], solution: Solution) -> float:
@@ -34,7 +56,20 @@ class BnbDFSSolver(Solver):
         #      tip 1. solution is your "starting point" (items already in the backpack)
         #      tip 2. left is the list of items you can still take
         #      tip 3. take the items with highest value density first (as in greedy_density approach)
-        return 0.0
+        
+        density_list = [item.value/item.weight for item in left]
+        
+        for item, density in sorted(zip(left, density_list), key=lambda x: x[1], reverse=True):
+            if solution.weight + item.weight <= self.problem.capacity:
+                solution = solution.with_added_item(item)
+            else:
+                left_capacity = self.problem.capacity - solution.weight
+                frac_value = density * left_capacity
+                
+                solution = solution.with_added_item(Item(item.index, frac_value, left_capacity))
+                break
+            
+        return solution.value
 
     def solve(self) -> Solution:
         self.interrupted = False
