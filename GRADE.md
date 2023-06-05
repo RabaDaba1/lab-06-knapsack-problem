@@ -1,12 +1,10 @@
 Dear Student,
 
-I regret to inform you that you've received only **14** out of 30 points for this assignment.
+I'm happy to announce that you've managed to get **26** out of 30 points for this assignment.
 
 There still exist some issues that should be addressed before the deadline: **2023-06-21 07:59:00 CEST (+0200)**. For further details, please refer to the following list:
 
 <details><summary>Greedy heuristic should be properly implemented &gt;&gt; heuristic WeightHeuristic provides an incorrect estimate:</summary>-&nbsp;got:&nbsp;-5<br>-&nbsp;expected:&nbsp;5<br>-&nbsp;for&nbsp;item&nbsp;with&nbsp;value:&nbsp;0&nbsp;and&nbsp;weight:&nbsp;-5</details>
-<details><summary>Bnb solver should solve example knapsack problems having correct upper bound function &gt;&gt; failed to correctly solve `ks_lecture_dp_1`:</summary>-&nbsp;got:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;total&nbsp;value:&nbsp;0<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;optimal:&nbsp;True<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;total&nbsp;weight:&nbsp;0<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;items:<br>-&nbsp;expected:&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;total&nbsp;value:&nbsp;11<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;optimal:&nbsp;True<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;total&nbsp;weight:&nbsp;9<br>&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;items:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;0(v:5,&nbsp;w:4)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;1(v:6,&nbsp;w:5)</details>
-<details><summary>Bnb solver should properly evaluate upper bound for given lists of items and solutions &gt;&gt; upper bound is not calculated correctly for problem `ks_lecture_dp_1`</summary>-&nbsp;got:&nbsp;0.0<br>-&nbsp;expected:&nbsp;11.6<br>-&nbsp;for&nbsp;taken&nbsp;items&nbsp;with&nbsp;indices:&nbsp;[0,&nbsp;1,&nbsp;2]</details>
 <details><summary>Dynamic solver should extract proper solution from correct table &gt;&gt; Tested code raises TypeError in solver.py:46</summary></details>
 
 -----------
